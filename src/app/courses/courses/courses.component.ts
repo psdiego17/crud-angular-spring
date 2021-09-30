@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseInterface } from '../model/course-interface';
 
 @Component({
   selector: 'app-courses',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
 
-  constructor() { }
+  course: CourseInterface[] = [
+    {_id: '001', name: 'Angular', category: 'front-end'},
+    {_id: '002', name: 'Java', category: 'back-end'}
+  ];
+
+  displayedColumns = [] = ['_id', 'name', 'category'];
+
+  constructor() { 
+    //this.course = []; //Caso não inicie o array na declaração, pode iniciar desse modo.
+  }
 
   ngOnInit(): void {
   }
