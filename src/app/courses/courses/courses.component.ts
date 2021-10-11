@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseInterface } from '../model/course-interface';
+import { CoursesService } from '../service/courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -8,15 +9,14 @@ import { CourseInterface } from '../model/course-interface';
 })
 export class CoursesComponent implements OnInit {
 
-  course: CourseInterface[] = [
-    {_id: '001', name: 'Angular', category: 'front-end'},
-    {_id: '002', name: 'Java', category: 'back-end'}
-  ];
+  course: CourseInterface[] = [];
 
-  displayedColumns = [] = ['_id', 'name', 'category'];
+  displayedColumns = ['_id', 'name', 'category']; //'actions'
 
-  constructor() { 
+  constructor(private coursesService: CoursesService) { 
     //this.course = []; //Caso não inicie o array na declaração, pode iniciar desse modo.
+    
+    this.course = this.coursesService.list();
   }
 
   ngOnInit(): void {
