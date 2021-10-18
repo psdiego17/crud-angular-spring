@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CourseInterface } from '../model/course-interface';
 import { CoursesService } from '../service/courses.service';
 
@@ -9,13 +10,12 @@ import { CoursesService } from '../service/courses.service';
 })
 export class CoursesComponent implements OnInit {
 
-  course: CourseInterface[] = [];
+  course: Observable<CourseInterface[]>;
 
   displayedColumns = ['_id', 'name', 'category']; //'actions'
 
   constructor(private coursesService: CoursesService) { 
     //this.course = []; //Caso não inicie o array na declaração, pode iniciar desse modo.
-    
     this.course = this.coursesService.list();
   }
 
