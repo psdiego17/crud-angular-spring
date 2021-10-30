@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses/courses.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { CoursesComponent } from './courses/courses.component';
     MatTableModule,
     MatCardModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
     
   ]
 })

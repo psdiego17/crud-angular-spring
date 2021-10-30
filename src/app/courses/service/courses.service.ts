@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CourseInterface } from '../model/course-interface';
 
 import { HttpClient } from '@angular/common/http';
-import { first, tap } from 'rxjs/operators';
+import { delay, first, tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -19,6 +19,7 @@ export class CoursesService {
     return this.httpClient.get<CourseInterface[]>(this.API)
     .pipe(
       first(),
+      delay(5000), //Tempo que o spinner fica rodando até carregar os dados
       tap(courses => console.log(courses))
     );
   }
